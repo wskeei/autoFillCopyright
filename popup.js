@@ -4,17 +4,12 @@ document.getElementById('autofill-btn').addEventListener('click', async () => {
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func: () => {
-      // 第一个表单内容
+      // 表单内容
       const autofillContent1 = "四核intel i5 CPU，16GB内存，512固态硬盘，10Mbps网络带宽";
-      // 第二个表单内容
       const autofillContent2 = "服务端内存2G以上，硬盘空间不低于40G； 客户端4G及以上内存，硬盘空间16G及以上";
-      // 第三个表单内容
       const autofillContent3 = "Windows 10操作系统";
-      // 第四个表单内容
       const autofillContent4 = "开发环境：node.js16.17.1，Vue3 开发工具：VsCode";
-      // 第五个表单内容
       const autofillContent5 = "Windows 10操作系统";
-      // 第六个表单内容
       const autofillContent6 = "nginx-1.24.5，MySQL5.0及以上版本";
       // 获取所有匹配的 textarea
       const textareas = document.querySelectorAll('.fillin_info .hd-text-area.large textarea.large');
@@ -95,6 +90,21 @@ document.getElementById('autofill-btn').addEventListener('click', async () => {
       } else {
         alert('未找到目标 textarea 元素');
       }
+
+      // 选择 JavaScript、HTML、SQL 复选框（修正版）
+      const checkboxValues = ["JavaScript", "HTML", "SQL"];
+      const labels = document.querySelectorAll('label.hd-checkbox-button');
+      labels.forEach(label => {
+        const input = label.querySelector('input[type="checkbox"]');
+        const span = label.querySelector('span.checkbox-inner');
+        if (!input || !span) return;
+        const labelText = span.childNodes[0].textContent.trim();
+        if (checkboxValues.includes(labelText)) {
+          if (!input.checked) input.click();
+        } else {
+          if (input.checked) input.click(); // 可选：取消其他已选
+        }
+      });
     }
   });
 });
