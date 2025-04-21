@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "AutoFill Copyright Form",
+  "version": "1.0",
+  "description": "自动填写软著申请表单",
+  "permissions": ["scripting", "activeTab", "tabs"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "一键自动填写"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
