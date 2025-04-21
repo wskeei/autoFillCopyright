@@ -14,9 +14,11 @@ document.getElementById('autofill-btn').addEventListener('click', async () => {
       const autofillContent4 = "开发环境：node.js16.17.1，Vue3 开发工具：VsCode";
       // 第五个表单内容
       const autofillContent5 = "Windows 10操作系统";
+      // 第六个表单内容
+      const autofillContent6 = "nginx-1.24.5，MySQL5.0及以上版本";
       // 获取所有匹配的 textarea
       const textareas = document.querySelectorAll('.fillin_info .hd-text-area.large textarea.large');
-      if (textareas.length >= 5) {
+      if (textareas.length >= 6) {
         textareas[0].value = autofillContent1;
         textareas[0].dispatchEvent(new Event('input', { bubbles: true }));
         textareas[0].dispatchEvent(new Event('change', { bubbles: true }));
@@ -32,6 +34,26 @@ document.getElementById('autofill-btn').addEventListener('click', async () => {
         textareas[4].value = autofillContent5;
         textareas[4].dispatchEvent(new Event('input', { bubbles: true }));
         textareas[4].dispatchEvent(new Event('change', { bubbles: true }));
+        textareas[5].value = autofillContent6;
+        textareas[5].dispatchEvent(new Event('input', { bubbles: true }));
+        textareas[5].dispatchEvent(new Event('change', { bubbles: true }));
+      } else if (textareas.length === 5) {
+        textareas[0].value = autofillContent1;
+        textareas[0].dispatchEvent(new Event('input', { bubbles: true }));
+        textareas[0].dispatchEvent(new Event('change', { bubbles: true }));
+        textareas[1].value = autofillContent2;
+        textareas[1].dispatchEvent(new Event('input', { bubbles: true }));
+        textareas[1].dispatchEvent(new Event('change', { bubbles: true }));
+        textareas[2].value = autofillContent3;
+        textareas[2].dispatchEvent(new Event('input', { bubbles: true }));
+        textareas[2].dispatchEvent(new Event('change', { bubbles: true }));
+        textareas[3].value = autofillContent4;
+        textareas[3].dispatchEvent(new Event('input', { bubbles: true }));
+        textareas[3].dispatchEvent(new Event('change', { bubbles: true }));
+        textareas[4].value = autofillContent5;
+        textareas[4].dispatchEvent(new Event('input', { bubbles: true }));
+        textareas[4].dispatchEvent(new Event('change', { bubbles: true }));
+        alert('只找到五个表单，第六个未填写');
       } else if (textareas.length === 4) {
         textareas[0].value = autofillContent1;
         textareas[0].dispatchEvent(new Event('input', { bubbles: true }));
@@ -45,7 +67,7 @@ document.getElementById('autofill-btn').addEventListener('click', async () => {
         textareas[3].value = autofillContent4;
         textareas[3].dispatchEvent(new Event('input', { bubbles: true }));
         textareas[3].dispatchEvent(new Event('change', { bubbles: true }));
-        alert('只找到四个表单，第五个未填写');
+        alert('只找到四个表单，第五、第六个未填写');
       } else if (textareas.length === 3) {
         textareas[0].value = autofillContent1;
         textareas[0].dispatchEvent(new Event('input', { bubbles: true }));
@@ -56,7 +78,7 @@ document.getElementById('autofill-btn').addEventListener('click', async () => {
         textareas[2].value = autofillContent3;
         textareas[2].dispatchEvent(new Event('input', { bubbles: true }));
         textareas[2].dispatchEvent(new Event('change', { bubbles: true }));
-        alert('只找到三个表单，第四、第五个未填写');
+        alert('只找到三个表单，第四、第五、第六个未填写');
       } else if (textareas.length === 2) {
         textareas[0].value = autofillContent1;
         textareas[0].dispatchEvent(new Event('input', { bubbles: true }));
@@ -64,12 +86,12 @@ document.getElementById('autofill-btn').addEventListener('click', async () => {
         textareas[1].value = autofillContent2;
         textareas[1].dispatchEvent(new Event('input', { bubbles: true }));
         textareas[1].dispatchEvent(new Event('change', { bubbles: true }));
-        alert('只找到两个表单，第三、第四、第五个未填写');
+        alert('只找到两个表单，第三、第四、第五、第六个未填写');
       } else if (textareas.length === 1) {
         textareas[0].value = autofillContent1;
         textareas[0].dispatchEvent(new Event('input', { bubbles: true }));
         textareas[0].dispatchEvent(new Event('change', { bubbles: true }));
-        alert('只找到一个表单，第二、第三、第四、第五个未填写');
+        alert('只找到一个表单，第二、第三、第四、第五、第六个未填写');
       } else {
         alert('未找到目标 textarea 元素');
       }
