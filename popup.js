@@ -105,6 +105,15 @@ document.getElementById('autofill-btn').addEventListener('click', async () => {
           if (input.checked) input.click(); // 可选：取消其他已选
         }
       });
+
+      // 填写随机数到指定 input 框
+      const inputBox = document.querySelector('.input-content.large input[type="text"]');
+      if (inputBox) {
+        const randomNum = Math.floor(Math.random() * (10000 - 7000 + 1)) + 7000;
+        inputBox.value = randomNum;
+        inputBox.dispatchEvent(new Event('input', { bubbles: true }));
+        inputBox.dispatchEvent(new Event('change', { bubbles: true }));
+      }
     }
   });
 });
