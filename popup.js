@@ -114,6 +114,14 @@ document.getElementById('autofill-btn').addEventListener('click', async () => {
         inputBox.dispatchEvent(new Event('input', { bubbles: true }));
         inputBox.dispatchEvent(new Event('change', { bubbles: true }));
       }
+
+      // 填写100字textarea内容
+      const textarea100 = document.querySelector('.hd-text-area.large textarea.large[maxlength="100"]');
+      if (textarea100) {
+        textarea100.value = "本系统具有简单性、面向对象、健壮性、平台独立与可移植性特点。";
+        textarea100.dispatchEvent(new Event('input', { bubbles: true }));
+        textarea100.dispatchEvent(new Event('change', { bubbles: true }));
+      }
     }
   });
 });
